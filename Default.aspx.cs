@@ -10,8 +10,8 @@ namespace AspNetCalc2
     public partial class _Default : Page
     {
         public static string input = String.Empty;
-        public static string num1;
-        public static string num2;
+        public static string num1 = String.Empty;
+        public static string num2 = String.Empty;
         public static char operation;
         public static double result;
 
@@ -100,6 +100,13 @@ namespace AspNetCalc2
             calcDisplay.Text += value;
             errorAlert.Text = String.Empty;
         }
+        protected void DotBtn_Click(object sender, EventArgs e)
+        {
+            string value = ".";
+            input += value;
+            calcDisplay.Text += value;
+            errorAlert.Text = String.Empty;
+        }
 
         protected void ClearBtn_Click(object sender, EventArgs e)
         {
@@ -107,6 +114,8 @@ namespace AspNetCalc2
             input = value;
             calcDisplay.Text = value;
             errorAlert.Text = String.Empty;
+            num1 = value;
+            num2 = value;
         }
 
         protected void PlusBtn_Click(object sender, EventArgs e)
@@ -147,35 +156,42 @@ namespace AspNetCalc2
         protected void EqBtn_Click(object sender, EventArgs e)
         {
             num2 = input;
-            switch (operation)
+            // Insure that equals operation will only proceed if 2 values assigned
+            if(num1 != String.Empty && num2 != String.Empty)
             {
-                case '+':
-                    result = double.Parse(num1) + double.Parse(num2);
-                    break;
-                case '-':
-                    result = double.Parse(num1) - double.Parse(num2);
-                    break;
-                case '*':
-                    result = double.Parse(num1) * double.Parse(num2);
-                    break;
-                case '/':
-                    try
-                    {
-                        result = double.Parse(num1) / double.Parse(num2);
+                // Switch statement on operation dicates which operation to perform
+                switch (operation)
+                {
+                    case '+':
+                        result = double.Parse(num1) + double.Parse(num2);
                         break;
-                    }
-                    catch
-                    {
+                    case '-':
+                        result = double.Parse(num1) - double.Parse(num2);
+                        break;
+                    case '*':
+                        result = double.Parse(num1) * double.Parse(num2);
+                        break;
+                    case '/':
+                        try
+                        {
+                            result = double.Parse(num1) / double.Parse(num2);
+                            break;
+                        }
+                        catch
+                        {
+                            result = double.Parse(num1);
+                            errorAlert.Text = "Cannot divide by zero.";
+                            break;
+                        }
+                    default:
                         result = double.Parse(num1);
-                        errorAlert.Text = "Cannot divide by zero.";
                         break;
-                    }
-                default:
-                    result = double.Parse(num1);
-                    break;
-            }   
-            calcDisplay.Text = Convert.ToString(result);
-            input = Convert.ToString(result);
+                }
+                // Assigns result to calculator display. Also assigns it to input, so operation can continue on result.
+                calcDisplay.Text = Convert.ToString(result);
+                input = Convert.ToString(result);
+
+            }
         }
 
     }

@@ -49,8 +49,8 @@ textarea {
 }
 
 .output {
-    width: 17em;
-    margin: .25em 1.2em;
+    width: 12.5em;
+    display: inline;
 }
 
 #errorAlter {

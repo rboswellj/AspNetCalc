@@ -24,6 +24,15 @@ namespace AspNetCalc2
         protected global::System.Web.UI.WebControls.TextBox calcDisplay;
 
         /// <summary>
+        /// clearBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button clearBtn;
+
+        /// <summary>
         /// oneBtn control.
         /// </summary>
         /// <remarks>
@@ -141,13 +150,13 @@ namespace AspNetCalc2
         protected global::System.Web.UI.WebControls.Button zeroBtn;
 
         /// <summary>
-        /// clearBtn control.
+        /// dotBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button clearBtn;
+        protected global::System.Web.UI.WebControls.Button dotBtn;
 
         /// <summary>
         /// eqBtn control.

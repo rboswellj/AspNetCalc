@@ -8,8 +8,10 @@
     <main class="center">
         <div class="container">
             <div class="container calcWrap">
-
-                <asp:TextBox ID="calcDisplay" runat="server" CssClass="form-control output"></asp:TextBox>
+                <div class="row">
+                    <asp:TextBox ID="calcDisplay" runat="server" CssClass="form-control output"></asp:TextBox>
+                    <asp:Button ID="clearBtn" runat="server" Text="C" class="btn btn-danger" OnClick="ClearBtn_Click" />
+                </div>
 
                 <div class="row">
                     <asp:Button ID="oneBtn" runat="server" Text="1" class="btn btn-default " OnClick="OneBtn_Click" />
@@ -31,7 +33,7 @@
                 </div>
                 <div class="row">
                     <asp:Button ID="zeroBtn" runat="server" Text="0" class="btn btn-default " OnClick="ZeroBtn_Click" />
-                    <asp:Button ID="clearBtn" runat="server" Text="C" class="btn btn-danger" OnClick="ClearBtn_Click" />
+                    <asp:Button ID="dotBtn" runat="server" Text="." class="btn btn-default" OnClick="DotBtn_Click" />
                     <asp:Button ID="eqBtn" runat="server" Text="=" class="btn btn-default btn-operator " OnClick="EqBtn_Click" />
                     <asp:Button ID="divideBtn" runat="server" Text="/" class="btn btn-default btn-operator " OnClick="DivideBtn_Click" />
                 </div>
